@@ -18,16 +18,16 @@ class Label_Processing:
     def rename_for_label(self):
         for i in range(len(self.classes)):
             print(len(self.classes))
-            train = input("Train_size for "+str(len(tqdm(os.listdir('data/'+self.classes[i]))))+"-"+self.classes[i]+" : ")
+            train = input("Train_size for "+self.classes[i]+" : ")
             
             for r,j in enumerate(tqdm(os.listdir('data/'+self.classes[i]))):
                 if r < int(train):
                     src = 'data/'+self.classes[i]+'/'+j
-                    dst = 'trainData/'+str(i)+"-"+j
+                    dst = 'train/'+str(i)+"-"+j
                     os.rename(src,dst)
                 else: 
                     src = 'data/'+self.classes[i]+'/'+j
-                    dst = 'testData/'+str(i)+"-"+j
+                    dst = 'test/'+str(i)+"-"+j
                     os.rename(src,dst)
 
                 
